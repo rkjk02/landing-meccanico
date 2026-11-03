@@ -1,219 +1,854 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Meccanico - Officina Meccanica a Roma</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icone -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#17191c">
+
+  <title>Officina Motori Roma | Meccanico e Assistenza Auto</title>
+  <meta name="description" content="Officina Motori Roma: riparazioni auto, tagliandi, diagnosi elettronica e manutenzione. Prenota il tuo intervento su WhatsApp.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #17191c;
+      --surface: #202328;
+      --surface-light: #292d33;
+      --orange: #ff6b27;
+      --orange-hover: #e95716;
+      --white: #f5f5f2;
+      --muted: #a5a8ad;
+      --border: rgba(255,255,255,.10);
+      --font-heading: 'Barlow Condensed', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 85px 0;
+    }
+
+    .eyebrow {
+      color: var(--orange);
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 6vw, 3.8rem);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 550px;
+      font-size: .95rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 23px;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: .9rem;
+      transition: .25s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.35);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    /* HEADER */
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(23,25,28,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .logo-icon {
+      width: 39px;
+      height: 39px;
+      background: var(--orange);
+      display: grid;
+      place-items: center;
+      border-radius: 5px;
+      font-size: 1.35rem;
+    }
+
+    .logo span:last-child {
+      color: var(--orange);
+    }
+
+    .header-cta {
+      padding: 11px 16px;
+      font-size: .8rem;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 690px;
+      padding: 150px 0 100px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(17,19,22,.97) 0%, rgba(17,19,22,.85) 48%, rgba(17,19,22,.25) 100%),
+        url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=2000&q=85')
+        center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 680px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      color: var(--orange);
+      border: 1px solid rgba(255,107,39,.5);
+      padding: 7px 13px;
+      border-radius: 3px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      text-transform: uppercase;
+      font-size: clamp(3.7rem, 9vw, 6.5rem);
+      line-height: .92;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: var(--orange);
+    }
+
+    .hero-description {
+      color: #d0d1d2;
+      max-width: 490px;
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero-location {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 45px;
+      color: #c5c6c8;
+      font-size: .85rem;
+    }
+
+    .hero-location strong {
+      color: white;
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: var(--surface);
+    }
+
+    .services-header {
+      margin-bottom: 40px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 7px;
+      transition: .3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--orange);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      background: rgba(255,107,39,.12);
+      color: var(--orange);
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      font-size: 1.7rem;
+      margin-bottom: 22px;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* GALLERY */
+
+    .gallery-header {
+      margin-bottom: 35px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .gallery-item {
+      height: 190px;
+      overflow: hidden;
+      border-radius: 5px;
+      background: var(--surface);
+    }
+
+    .gallery-item img {
+      height: 100%;
+      transition: transform .5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.07);
+    }
+
+    /* INFO */
+
+    .info {
+      background: var(--surface);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 35px;
+      margin-top: 38px;
+    }
+
+    .info-card {
+      background: var(--bg);
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .info-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .88rem;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-row span:first-child {
+      color: var(--muted);
+    }
+
+    .info-row strong {
+      text-align: right;
+    }
+
+    .address {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 20px;
+    }
+
+    .map {
+      width: 100%;
+      height: 270px;
+      border: 0;
+      border-radius: 5px;
+      filter: grayscale(100%) contrast(1.05);
+    }
+
+    /* CTA */
+
+    .cta-section {
+      padding: 75px 0;
+      text-align: center;
+      background:
+        linear-gradient(rgba(17,19,22,.9), rgba(17,19,22,.9)),
+        url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1600&q=80')
+        center/cover;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 17px;
+    }
+
+    .cta-section p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      background: #101114;
+      padding: 45px 0 25px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      padding-bottom: 30px;
+    }
+
+    .footer-description {
+      color: var(--muted);
+      font-size: .85rem;
+      max-width: 340px;
+      margin-top: 14px;
+    }
+
+    .footer-contact {
+      color: var(--muted);
+      font-size: .9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-contact a:hover {
+      color: var(--orange);
+    }
+
+    .copyright {
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      color: #777b81;
+      font-size: .78rem;
+      text-align: center;
+    }
+
+    /* FLOATING WHATSAPP */
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 22px;
+      right: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 1.7rem;
+      z-index: 999;
+      box-shadow: 0 5px 20px rgba(0,0,0,.35);
+      transition: .2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* RESPONSIVE */
+
+    @media (min-width: 650px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .gallery-item {
+        height: 230px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .logo {
+        font-size: 1.35rem;
+      }
+
+      .header-cta {
+        padding: 10px 12px;
+        font-size: .72rem;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-    <!-- 1. HEADER FISSO -->
-    <header class="fixed top-0 left-0 w-full bg-slate-900/95 backdrop-blur-md text-white z-50 border-b border-slate-800 shadow-lg">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-2 text-xl font-extrabold tracking-wider text-white">
-                <i class="fa-solid font-bold fa-wrench text-amber-500"></i>
-                <span>IL MECCANICO</span>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+
+      <a href="#" class="logo" aria-label="Officina Motori Roma - Home">
+        <span class="logo-icon">🔧</span>
+        <span>Motori <span>Roma</span></span>
+      </a>
+
+      <a href="tel:+390612345678" class="btn btn-primary header-cta">
+        ☎ Chiama Ora
+      </a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+
+          <span class="hero-tag">La tua officina di fiducia a Roma</span>
+
+          <h1>
+            La tua auto,<br>
+            <span>in buone mani.</span>
+          </h1>
+
+          <p class="hero-description">
+            Professionalità, esperienza e attenzione per ogni
+            dettaglio. Ci prendiamo cura della tua auto,
+            dalla manutenzione ordinaria alle riparazioni.
+          </p>
+
+          <div class="hero-buttons">
+            <a
+              href="https://wa.me/393123456789?text=Buongiorno%2C%20vorrei%20prenotare%20un%20intervento%20per%20la%20mia%20auto."
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Prenota su WhatsApp →
             </a>
-            <!-- CTA Chiama Ora -->
-            <a href="tel:3333333333" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2 rounded-lg flex items-center gap-2 transition duration-200 text-sm md:text-base">
-                <i class="fa-solid fa-phone"></i>
-                <span class="hidden xs:inline">Chiama Ora</span>
+
+            <a href="#servizi" class="btn btn-outline">
+              Scopri i servizi
             </a>
-        </div>
-    </header>
+          </div>
 
-    <!-- 2. HERO SECTION -->
-    <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-slate-900 text-white overflow-hidden">
-        <!-- Foto Sfondo con Sovrapposizione Scura -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1600&auto=format&fit=crop" 
-                 alt="Officina Meccanica Roma" 
-                 class="w-full h-full object-cover opacity-25">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+          <div class="hero-location">
+            📍 <strong>Roma</strong> · Via Tuscolana 245
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="servizi">
+      <div class="container">
+
+        <div class="services-header">
+          <p class="eyebrow">Cosa facciamo</p>
+          <h2 class="section-title">I nostri servizi</h2>
+          <p class="section-description">
+            Tutto ciò di cui la tua auto ha bisogno,
+            in un'unica officina.
+          </p>
         </div>
 
-        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-            <span class="inline-block bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs md:text-sm px-3 py-1 rounded-full font-semibold mb-4 tracking-wide">
-                OFFICINA SPECIALIZZATA A ROMA
-            </span>
-            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 leading-tight">
-                Assistenza Riparazioni e Tagliandi Auto a Roma
-            </h1>
-            <p class="text-base md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto font-normal">
-                Interventi rapidi, diagnostica computerizzata e massima trasparenza. Mantieni la tua auto in perfette condizioni.
+        <div class="services-grid">
+
+          <article class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3>Tagliando e manutenzione</h3>
+            <p>
+              Cambio olio, filtri, controlli periodici
+              e manutenzione per mantenere la tua auto
+              sempre efficiente.
             </p>
-            <!-- CTA WhatsApp Principale -->
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://wa.me/393333333333?text=Ciao!%20Vorrei%20richiedere%20un%20preventivo%20o%20prenotare%20un%20intervento." 
-                   target="_blank"
-                   class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-xl text-lg flex items-center justify-center gap-3 shadow-lg shadow-emerald-500/25 transition duration-200">
-                    <i class="fa-brands fa-whatsapp text-2xl"></i>
-                    <span>Prenota su WhatsApp</span>
-                </a>
-            </div>
-        </div>
-    </section>
+          </article>
 
-    <!-- 3. SEZIONE PUNTI DI FORZA / SERVIZI -->
-    <section class="py-16 px-4 max-w-6xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Perché Sceglierci</h2>
-            <p class="text-slate-600">I nostri servizi principali per la cura del tuo veicolo</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Punto 1 -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-amber-500/10 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
-                    <i class="fa-solid fa-microchip"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2">Diagnostica Avanzata</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Rilevamento guasti elettronici e meccanici con strumentazione computerizzata all'avanguardia per tutte le marche.
-                </p>
-            </div>
-            <!-- Punto 2 -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-amber-500/10 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
-                    <i class="fa-solid fa-oil-can"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2">Tagliandi & Revisioni</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Manutenzione ordinaria rapida con ricambi di qualità originale per mantenere la garanzia del tuo veicolo.
-                </p>
-            </div>
-            <!-- Punto 3 -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-amber-500/10 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
-                    <i class="fa-solid fa-car-battery"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2">Meccanica Generale</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Riparazione freni, ammortizzatori, cinghie di distribuzione e cambi manuali o automatici.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. GALLERIA FOTOGRAFICA -->
-    <section class="py-16 bg-slate-100 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">La Nostra Officina</h2>
-                <p class="text-slate-600">Professionalità e attrezzature moderne al tuo servizio</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="overflow-hidden rounded-xl h-48 md:h-64 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=800&auto=format&fit=crop" 
-                         alt="Lavoro meccanico auto" 
-                         class="w-full h-full object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-xl h-48 md:h-64 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=800&auto=format&fit=crop" 
-                         alt="Diagnostica auto" 
-                         class="w-full h-full object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-xl h-48 md:h-64 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop" 
-                         alt="Riparazione motore" 
-                         class="w-full h-full object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-xl h-48 md:h-64 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=800&auto=format&fit=crop" 
-                         alt="Controllo freni e gomme" 
-                         class="w-full h-full object-cover hover:scale-105 transition duration-300">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. INFORMAZIONI, ORARI & MAPPA -->
-    <section class="py-16 px-4 max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
-            <!-- Dettagli Officina -->
-            <div class="space-y-6">
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Dove Siamo e Orari</h2>
-                    <p class="text-slate-600">Vieni a trovarci o contattaci per qualsiasi informazione.</p>
-                </div>
-
-                <div class="space-y-4">
-                    <!-- Indirizzo -->
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 bg-amber-500/10 text-amber-600 rounded-lg flex items-center justify-center shrink-0">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">Indirizzo</h4>
-                            <p class="text-slate-600 text-sm">Via Roma, 1, 00199 Roma RM</p>
-                        </div>
-                    </div>
-
-                    <!-- Orari -->
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 bg-amber-500/10 text-amber-600 rounded-lg flex items-center justify-center shrink-0">
-                            <i class="fa-solid fa-clock"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">Orari di Apertura</h4>
-                            <p class="text-slate-600 text-sm">Lunedì - Venerdì: 08:00 - 20:00</p>
-                            <p class="text-slate-600 text-sm">Sabato e Domenica: Chiuso</p>
-                        </div>
-                    </div>
-
-                    <!-- Telefono -->
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 bg-amber-500/10 text-amber-600 rounded-lg flex items-center justify-center shrink-0">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">Telefono & WhatsApp</h4>
-                            <p class="text-slate-600 text-sm">333 333 3333</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mappa Google Integrata -->
-            <div class="w-full h-80 rounded-2xl overflow-hidden shadow-sm border border-slate-200">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.7909564800315!2d12.5050529!3d41.9296564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6165e3176b91%3A0xb3a826bc4db39cf4!2sVia%20Roma%2C%2000199%20Roma%20RM!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- 6. FOOTER -->
-    <footer class="mt-auto bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-sm">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-2 text-white font-bold">
-                <i class="fa-solid fa-wrench text-amber-500"></i>
-                <span>IL MECCANICO - ROMA</span>
-            </div>
-            <p class="text-center sm:text-right">
-                &copy; 2026 Il Meccanico. Tutti i diritti riservati. <br class="sm:hidden">Via Roma, 1 - 00199 Roma RM.
+          <article class="service-card">
+            <div class="service-icon">🔍</div>
+            <h3>Diagnosi elettronica</h3>
+            <p>
+              Individuiamo eventuali anomalie attraverso
+              strumenti diagnostici professionali
+              e controlli accurati.
             </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🛠️</div>
+            <h3>Riparazioni meccaniche</h3>
+            <p>
+              Interventi su motore, freni, frizione
+              e componenti meccaniche per riportare
+              la tua auto in strada.
+            </p>
+          </article>
+
         </div>
-    </footer>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery" id="galleria">
+      <div class="container">
+
+        <div class="gallery-header">
+          <p class="eyebrow">Il nostro ambiente</p>
+          <h2 class="section-title">Dentro l'officina</h2>
+          <p class="section-description">
+            Attrezzature professionali, cura del lavoro
+            e attenzione per ogni veicolo.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=700&q=80"
+              alt="Dettaglio di un motore automobilistico"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1487754180451-c456f60e1fdc?auto=format&fit=crop&w=700&q=80"
+              alt="Intervento di manutenzione su un'automobile"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1632823471565-1ecdf5c6c4b8?auto=format&fit=crop&w=700&q=80"
+              alt="Automobile durante un intervento meccanico"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=700&q=80"
+              alt="Automobile pronta per la strada"
+              loading="lazy"
+            >
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OPENING HOURS AND LOCATION -->
+    <section class="section info" id="contatti">
+      <div class="container">
+
+        <p class="eyebrow">Vieni a trovarci</p>
+        <h2 class="section-title">Dove siamo</h2>
+
+        <div class="info-grid">
+
+          <div class="info-card">
+
+            <h3>Orari di apertura</h3>
+
+            <div class="info-row">
+              <span>Lunedì – Venerdì</span>
+              <strong>08:30 – 13:00<br>14:30 – 18:30</strong>
+            </div>
+
+            <div class="info-row">
+              <span>Sabato</span>
+              <strong>09:00 – 13:00</strong>
+            </div>
+
+            <div class="info-row">
+              <span>Domenica</span>
+              <strong style="color:var(--orange)">Chiuso</strong>
+            </div>
+
+            <div style="margin-top:25px">
+              <h3>Contatti</h3>
+
+              <div class="info-row">
+                <span>Telefono</span>
+                <strong>
+                  <a href="tel:+390612345678">06 1234 5678</a>
+                </strong>
+              </div>
+
+              <div class="info-row">
+                <span>Indirizzo</span>
+                <strong>Via Tuscolana 245, Roma</strong>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="info-card">
+
+            <h3>Raggiungici</h3>
+
+            <p class="address">
+              📍 Via Tuscolana 245<br>
+              00181 Roma, Italia
+            </p>
+
+            <iframe
+              class="map"
+              src="https://maps.google.com/maps?q=Via%20Tuscolana%20245%2C%20Roma&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              title="Mappa: Officina Motori Roma"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Via+Tuscolana+245+Roma"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline"
+              style="margin-top:17px;width:100%"
+            >
+              Apri in Google Maps ↗
+            </a>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-section">
+      <div class="container">
+
+        <p class="eyebrow">Hai bisogno di un meccanico?</p>
+
+        <h2>Non aspettare,<br>prenota il tuo intervento.</h2>
+
+        <p>
+          Contattaci per informazioni o per fissare
+          un appuntamento.
+        </p>
+
+        <a
+          href="https://wa.me/393123456789?text=Buongiorno%2C%20vorrei%20ricevere%20informazioni%20sui%20vostri%20servizi."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          Prenota su WhatsApp →
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-content">
+
+        <div>
+          <a href="#" class="logo">
+            <span class="logo-icon">🔧</span>
+            <span>Motori <span>Roma</span></span>
+          </a>
+
+          <p class="footer-description">
+            La tua officina di fiducia a Roma.
+            Professionalità e competenza al servizio
+            della tua auto.
+          </p>
+        </div>
+
+        <div class="footer-contact">
+          <strong style="color:white">Contatti</strong>
+          <a href="tel:+390612345678">☎ 06 1234 5678</a>
+          <a href="https://wa.me/393123456789"
+             target="_blank"
+             rel="noopener noreferrer">WhatsApp</a>
+          <span>Via Tuscolana 245, Roma</span>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        © <span id="year"></span> Officina Motori Roma.
+        Tutti i diritti riservati.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <a
+    href="https://wa.me/393123456789?text=Buongiorno%2C%20vorrei%20contattarvi."
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contattaci su WhatsApp"
+  >
+    ☎
+  </a>
+
+  <script>
+    // Aggiorna automaticamente l'anno nel footer
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+  </script>
 
 </body>
 </html>
