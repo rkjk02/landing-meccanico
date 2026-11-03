@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Meccanico - Officina Meccanica a Roma</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- 1. HEADER FISSO -->
+    <header class="fixed top-0 left-0 w-full bg-slate-900/95 backdrop-blur-md text-white z-50 border-b border-slate-800 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 text-xl font-extrabold tracking-wider text-white">
+                <i class="fa-solid font-bold fa-wrench text-amber-500"></i>
+                <span>IL MECCANICO</span>
+            </a>
+            <!-- CTA Chiama Ora -->
+            <a href="tel:3333333333" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2 rounded-lg flex items-center gap-2 transition duration-200 text-sm md:text-base">
+                <i class="fa-solid fa-phone"></i>
+                <span class="hidden xs:inline">Chiama Ora</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-slate-900 text-white overflow-hidden">
+        <!-- Foto Sfondo con Sovrapposizione Scura -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1600&auto=format&fit=crop" 
+                 alt="Officina Meccanica Roma" 
+                 class="w-full h-full object-cover opacity-25">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <span class="inline-block bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs md:text-sm px-3 py-1 rounded-full font-semibold mb-4 tracking-wide">
+                OFFICINA SPECIALIZZATA A ROMA
+            </span>
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 leading-tight">
+                Assistenza Riparazioni e Tagliandi Auto a Roma
+            </h1>
+            <p class="text-base md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto font-normal">
+                Interventi rapidi, diagnostica computerizzata e massima trasparenza. Mantieni la tua auto in perfette condizioni.
+            </p>
+            <!-- CTA WhatsApp Principale -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/393333333333?text=Ciao!%20Vorrei%20richiedere%20un%20preventivo%20o%20prenotare%20un%20intervento." 
+                   target="_blank"
+                   class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-xl text-lg flex items-center justify-center gap-3 shadow-lg shadow-emerald-500/25 transition duration-200">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Prenota su WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SEZIONE PUNTI DI FORZA / SERVIZI -->
+    <section class="py-16 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Perché Sceglierci</h2>
+            <p class="text-slate-600">I nostri servizi principali per la cura del tuo veicolo</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Punto 1 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
+                <div class="w-12 h-12 bg-amber-500/10 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Diagnostica Avanzata</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Rilevamento guasti elettronici e meccanici con strumentazione computerizzata all'avanguardia per tutte le marche.
+                </p>
+            </div>
+            <!-- Punto 2 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
+                <div class="w-12 h-12 bg-amber-500/10 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                    <i class="fa-solid fa-oil-can"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Tagliandi & Revisioni</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Manutenzione ordinaria rapida con ricambi di qualità originale per mantenere la garanzia del tuo veicolo.
+                </p>
+            </div>
+            <!-- Punto 3 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
+                <div class="w-12 h-12 bg-amber-500/10 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                    <i class="fa-solid fa-car-battery"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Meccanica Generale</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Riparazione freni, ammortizzatori, cinghie di distribuzione e cambi manuali o automatici.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. GALLERIA FOTOGRAFICA -->
+    <section class="py-16 bg-slate-100 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">La Nostra Officina</h2>
+                <p class="text-slate-600">Professionalità e attrezzature moderne al tuo servizio</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-xl h-48 md:h-64 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=800&auto=format&fit=crop" 
+                         alt="Lavoro meccanico auto" 
+                         class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="overflow-hidden rounded-xl h-48 md:h-64 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=800&auto=format&fit=crop" 
+                         alt="Diagnostica auto" 
+                         class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="overflow-hidden rounded-xl h-48 md:h-64 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop" 
+                         alt="Riparazione motore" 
+                         class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="overflow-hidden rounded-xl h-48 md:h-64 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=800&auto=format&fit=crop" 
+                         alt="Controllo freni e gomme" 
+                         class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. INFORMAZIONI, ORARI & MAPPA -->
+    <section class="py-16 px-4 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Dettagli Officina -->
+            <div class="space-y-6">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Dove Siamo e Orari</h2>
+                    <p class="text-slate-600">Vieni a trovarci o contattaci per qualsiasi informazione.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Indirizzo -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-amber-500/10 text-amber-600 rounded-lg flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900">Indirizzo</h4>
+                            <p class="text-slate-600 text-sm">Via Roma, 1, 00199 Roma RM</p>
+                        </div>
+                    </div>
+
+                    <!-- Orari -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-amber-500/10 text-amber-600 rounded-lg flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900">Orari di Apertura</h4>
+                            <p class="text-slate-600 text-sm">Lunedì - Venerdì: 08:00 - 20:00</p>
+                            <p class="text-slate-600 text-sm">Sabato e Domenica: Chiuso</p>
+                        </div>
+                    </div>
+
+                    <!-- Telefono -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-amber-500/10 text-amber-600 rounded-lg flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900">Telefono & WhatsApp</h4>
+                            <p class="text-slate-600 text-sm">333 333 3333</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mappa Google Integrata -->
+            <div class="w-full h-80 rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.7909564800315!2d12.5050529!3d41.9296564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6165e3176b91%3A0xb3a826bc4db39cf4!2sVia%20Roma%2C%2000199%20Roma%20RM!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="mt-auto bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-sm">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2 text-white font-bold">
+                <i class="fa-solid fa-wrench text-amber-500"></i>
+                <span>IL MECCANICO - ROMA</span>
+            </div>
+            <p class="text-center sm:text-right">
+                &copy; 2026 Il Meccanico. Tutti i diritti riservati. <br class="sm:hidden">Via Roma, 1 - 00199 Roma RM.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
